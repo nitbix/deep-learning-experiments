@@ -1,0 +1,23 @@
+---
+## MLP Parameters ##
+dataset: /local/cifar10-gcn-augmented_th/
+model_file: all-cnn.model
+optimizer:
+  class_name: Adam
+  config:
+    lr: 0.0001
+    decay: 1e-5
+n_epochs: 150 #max number of training epochs
+batch_size: 128
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+online_transform:
+    horizontal_flip: true
+    rotation_range: 20
+    zoom_range: 0.1
+    height_shift_range: 0.1
+    width_shift_range: 0.1
+## Ensemble Parameters ##
+resample_size: 40000
+method: !Bagging {}
+ensemble_size: 10
