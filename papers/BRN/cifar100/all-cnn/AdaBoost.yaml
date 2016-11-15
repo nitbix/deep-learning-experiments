@@ -10,15 +10,16 @@ optimizer:
 n_epochs: 100 #max number of training epochs
 batch_size: 256
 cost_function: categorical_crossentropy
-join_train_and_valid: true
 shuffle_dataset: true
+join_train_and_valid: true
 online_transform:
     horizontal_flip: true
     vertical_flip: false
     rotation_range: 10
     height_shift_range: 0.1
     width_shift_range: 0.1
+
 ## Ensemble Parameters ##
-resample_size: 40000
-method: !Bagging {}
+resample_size: 50000
+method: !AdaBoostM1 { }
 ensemble_size: 10

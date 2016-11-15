@@ -1,0 +1,43 @@
+---
+## MLP Parameters ##
+dataset: /local/mnist_th/
+model_file: mnist.model
+optimizer:
+  class_name: Adam
+  config:
+    lr: 0.001
+    decay: 1e-4
+n_epochs: 100 #max number of training epochs
+batch_size: 128
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+
+## Ensemble Parameters ##
+resample_size: 60000
+method: !DIB
+    n_epochs_after_first: 10
+    incremental_index: 9
+    incremental_layers:
+        - class_name: Convolution2D
+          config:
+              W_constraint: null
+              W_regularizer: {l1: 0.0, l2: 9.999999747378752e-05, name: WeightRegularizer}
+              activation: linear
+              activity_regularizer: null
+              b_constraint: null
+              b_regularizer: {l1: 0.0, l2: 9.999999747378752e-05, name: WeightRegularizer}
+              bias: true
+              border_mode: same
+              dim_ordering: th
+              init: he_normal
+              nb_col: 3
+              nb_filter: 64
+              nb_row: 3
+              subsample: !!python/tuple [1, 1]
+              trainable: true
+        - class_name: BatchNormalization
+          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+            mode: 2, momentum: 0.99, name: batchnormalization_2, trainable: true}
+        - class_name: Activation
+          config: {activation: relu, name: activation_2, trainable: true}
+ensemble_size: 10

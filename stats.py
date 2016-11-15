@@ -6,7 +6,7 @@ import math
 
 from stats_common import *
 
-results_table="armsprop"
+results_table="asprop"
 results_db="amosca02"                                                                                                                                                                            
 results_host="localhost"  
 

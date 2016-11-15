@@ -1,7 +1,7 @@
 #!/bin/bash
 results_table="armsprop"
 results_db="amosca02"
-results_host="gpuvm1"
+results_host="localhost"
 
 if [ "$2" != "" ]; then
   random_seeds=`tail -n +$2 random_seeds`
