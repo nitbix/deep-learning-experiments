@@ -15,26 +15,26 @@ widening_factor = 10
 
 def residual_block(x, nb_filters=16, subsample_factor=1):
     #make input
-    prev_nb_channels = K.int_shape(x)[3]
+    prev_nb_channels = K.int_shape(x)[1]
     input_shape = x.shape
     if subsample_factor > 1:
         subsample = (subsample_factor, subsample_factor)
         # shortcut: subsample + zero-pad channel dim
-        shortcut = AveragePooling2D(pool_size=subsample, dim_ordering='tf')(x)
+        shortcut = AveragePooling2D(pool_size=subsample, dim_ordering='th')(x)
     else:
         subsample = (1, 1)
         # shortcut: identity
         shortcut = x
         
-    y = BatchNormalization(axis=3)(x)
+    y = BatchNormalization(axis=1)(x)
     y = Activation('relu')(y)
     y = Convolution2D(nb_filters, 3, 3, subsample=subsample,
-                      init='he_normal', border_mode='same', dim_ordering='tf')(y)
-    y = BatchNormalization(axis=3)(y)
+                      init='he_normal', border_mode='same', dim_ordering='th')(y)
+    y = BatchNormalization(axis=1)(y)
     y = Activation('relu')(y)
     y = Dropout(0.5)(y)
     y = Convolution2D(nb_filters, 3, 3, subsample=(1, 1),
-                      init='he_normal', border_mode='same', dim_ordering='tf')(y)
+                      init='he_normal', border_mode='same', dim_ordering='th')(y)
 
     # 1 X 1 conv if shape is different. Else identity.
     if (nb_filters > prev_nb_channels):
@@ -42,16 +42,16 @@ def residual_block(x, nb_filters=16, subsample_factor=1):
                                  subsample=(1,1),
                                  init="he_normal",
                                  border_mode="same",
-                                 dim_ordering='tf'
+                                 dim_ordering='th'
                                  )(shortcut)
 
     #make merge
     return merge([y,shortcut], mode="sum")
 
-inputs = Input(shape=(img_rows, img_cols, img_channels))
+inputs = Input(shape=(img_channels, img_rows, img_cols))
 
 x = Convolution2D(16, 3, 3, 
-                  init='he_normal', border_mode='same', dim_ordering='tf')(inputs)
+                  init='he_normal', border_mode='same', dim_ordering='th')(inputs)
 
 for i in range(0, blocks_per_group):
     nb_filters = 16 * widening_factor
@@ -75,13 +75,12 @@ for i in range(0, blocks_per_group):
 
 x = BatchNormalization(axis=3)(x)
 x = Activation('relu')(x)
-x = AveragePooling2D(pool_size=(8, 8), strides=None, border_mode='valid', dim_ordering='tf')(x)
+x = AveragePooling2D(pool_size=(8, 8), strides=None, border_mode='valid', dim_ordering='th')(x)
 x = Flatten()(x)
 
 predictions = Dense(nb_classes, activation='softmax')(x)
 
 model = Model(input=inputs, output=predictions)
 
-from pprint import pprint
-pprint(model.get_config())
+print model.to_yaml()
 
