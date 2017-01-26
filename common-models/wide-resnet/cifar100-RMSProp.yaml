@@ -1,7 +1,7 @@
 ---
 ## MLP Parameters ##
 dataset: /local/cifar100-th/
-model_file: wide-resnet.model
+model_file: wide-resnet-100.model
 optimizer:
     class_name: RMSprop
     config:
@@ -14,7 +14,7 @@ optimizer:
     momentum: 0.9
     nesterov: True
 n_epochs: 60 #max number of training epochs
-batch_size: 128
+batch_size: 64
 cost_function: categorical_crossentropy
 shuffle_dataset: true
 join_train_and_valid: true
