@@ -1,0 +1,43 @@
+---
+## MLP Parameters ##
+dataset: /local/cifar10-th/
+model_file: wide-resnet.model
+optimizer:
+    class_name: RMSprop
+    config:
+        lr:
+            0:  0.001
+            30: 0.0001
+            50: 0.00001
+            80: 0.000001
+    decay: 0
+    momentum: 0.9
+    nesterov: True
+n_epochs: 60 #max number of training epochs
+batch_size: 128
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+join_train_and_valid: true
+online_transform:
+    #    pad: [40, 40]
+#    crop: [32, 32]
+    horizontal_flip: true
+#    vertical_flip: false
+#    rotation_range: 10
+#    height_shift_range: 0.1
+#    width_shift_range: 0.1
+#    after_epoch: 30
+#    rotation_range: 10
+#    zoom_range: 0.2
+    height_shift_range: 0.125
+    width_shift_range: 0.125
+    zca_whitening: true
+#    shear_range: 0.75
+#    elastic_transform:
+#        alpha: 8
+#        sigma: 5
+
+## Ensemble Parameters ##
+resample_size: 50000
+method: !Bagging {}
+ensemble_size: 5
