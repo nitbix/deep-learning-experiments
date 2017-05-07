@@ -1,17 +1,16 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar10_whitened_torch/
-model_file: all-cnn.model
+dataset: /local/cifar100_whitened_torch/
+model_file: full-resnet.model
 optimizer:
   class_name: WAME
   config:
     lr:
       0:  0.001
-      30: 0.0005
-      60: 0.0001
+      40: 0.0001
     decay: 1e-5
-n_epochs: 100
-batch_size: 128
+n_epochs: 50 #max number of training epochs
+batch_size: 256
 cost_function: categorical_crossentropy
 shuffle_dataset: true
 join_train_and_valid: false
@@ -19,5 +18,5 @@ one_hot: true
 
 ## Ensemble Parameters ##
 resample_size: 50000
-method: !AdaBoostM1 { }
+method: !Bagging { }
 ensemble_size: 10

@@ -1,6 +1,6 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar100-th/
+dataset: /local/cifar100_whitened_torch/
 model_file: full-resnet.model
 optimizer:
   class_name: WAME
@@ -13,7 +13,8 @@ n_epochs: 50 #max number of training epochs
 batch_size: 256
 cost_function: categorical_crossentropy
 shuffle_dataset: true
-join_train_and_valid: true
+join_train_and_valid: false
+one_hot: true
 
 ## Ensemble Parameters ##
 resample_size: 50000

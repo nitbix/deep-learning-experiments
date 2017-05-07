@@ -19,5 +19,5 @@ one_hot: true
 
 ## Ensemble Parameters ##
 resample_size: 50000
-method: !AdaBoostM1 { }
+method: !Bagging { }
 ensemble_size: 10

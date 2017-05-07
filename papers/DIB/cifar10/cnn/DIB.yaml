@@ -1,16 +1,17 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar100_whitened_torch/
+dataset: /local/cifar10_whitened_torch/
 model_file: all-cnn.model
 optimizer:
   class_name: WAME
   config:
     lr:
       0:  0.001
-      40: 0.0001
+      30: 0.0005
+      60: 0.0001
     decay: 1e-5
 n_epochs: 100
-batch_size: 128
+batch_size: 256 
 cost_function: categorical_crossentropy
 shuffle_dataset: true
 join_train_and_valid: false
@@ -18,39 +19,12 @@ one_hot: true
 
 ## Ensemble Parameters ##
 resample_size: 50000
-use_sample_weights: true
 method: !DIB
     n_epochs_after_first: 10
     freeze_old_layers: false
+    use_sample_weights: true
     incremental_index: 31
     incremental_layers:
-        - class_name: BatchNormalization
-          config:
-            axis: 1
-            beta_constraint: null
-            beta_initializer:
-              class_name: Zeros
-              config: {}
-            beta_regularizer: null
-            center: true
-            epsilon: 0.001
-            gamma_constraint: null
-            gamma_initializer:
-              class_name: Ones
-              config: {}
-            gamma_regularizer: null
-            momentum: 0.99
-            moving_mean_initializer:
-              class_name: Zeros
-              config: {}
-            moving_variance_initializer:
-              class_name: Ones
-              config: {}
-            name: batch_normalization_1
-            scale: true
-            trainable: true
-        - class_name: Activation
-          config: {activation: relu, name: activation_5, trainable: true}
         - class_name: Conv2D
           config:
             activation: linear
@@ -78,6 +52,8 @@ method: !DIB
             strides: &id002 !!python/tuple [1, 1]
             trainable: true
             use_bias: true
+        - class_name: Activation
+          config: {activation: relu, name: activation_5, trainable: true}
         - class_name: BatchNormalization
           config:
             axis: 1
@@ -103,8 +79,6 @@ method: !DIB
             name: batch_normalization_1
             scale: true
             trainable: true
-        - class_name: Activation
-          config: {activation: relu, name: activation_6, trainable: true}
         - class_name: Conv2D
           config:
             activation: linear
@@ -132,4 +106,33 @@ method: !DIB
             strides: *id002
             trainable: true
             use_bias: true
+        - class_name: Activation
+          config: {activation: relu, name: activation_6, trainable: true}
+        - class_name: BatchNormalization
+          config:
+            axis: 1
+            beta_constraint: null
+            beta_initializer:
+              class_name: Zeros
+              config: {}
+            beta_regularizer: null
+            center: true
+            epsilon: 0.001
+            gamma_constraint: null
+            gamma_initializer:
+              class_name: Ones
+              config: {}
+            gamma_regularizer: null
+            momentum: 0.99
+            moving_mean_initializer:
+              class_name: Zeros
+              config: {}
+            moving_variance_initializer:
+              class_name: Ones
+              config: {}
+            name: batch_normalization_1
+            scale: true
+            trainable: true
+        - class_name: Dropout
+          config: {name: dropout_2, rate: 0.5, trainable: true}
 ensemble_size: 10
