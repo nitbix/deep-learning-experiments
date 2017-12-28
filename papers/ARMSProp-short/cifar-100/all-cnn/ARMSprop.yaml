@@ -1,9 +1,9 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar100_th/
+dataset: /local/cifar100-th/
 model_file: all-cnn.model
 optimizer:
-  class_name: ARMSProp
+  class_name: WAME
   config:
     lr: 0.001
     decay: 1e-5

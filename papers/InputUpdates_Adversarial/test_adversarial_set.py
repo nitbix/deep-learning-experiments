@@ -3,9 +3,6 @@
 import sys
 import argparse
 import numpy as np
-import keras
-import theano
-from keras import backend as K
 from keras.models import load_model
 from toupee import data, config
 

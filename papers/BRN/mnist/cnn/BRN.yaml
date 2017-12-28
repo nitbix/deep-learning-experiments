@@ -3,22 +3,30 @@
 dataset: /local/mnist_th/
 model_file: mnist.model
 optimizer:
-  class_name: Adam
+  class_name: WAME
   config:
     lr: 0.001
     decay: 1e-4
-n_epochs: 50 #max number of training epochs
+n_epochs: 100 #max number of training epochs
 batch_size: 128
 cost_function: categorical_crossentropy
 shuffle_dataset: true
 
 ## Ensemble Parameters ##
 resample_size: 60000
+use_sample_weights: true
 method: !BRN
     n_epochs_after_first: 10
     freeze_old_layers: false
-    incremental_index: 9
+    use_sample_weights: true
+    resample: false
+    incremental_index: 6
     incremental_layers:
+        - class_name: BatchNormalization
+          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+            mode: 2, momentum: 0.99, name: batchnormalization_2, trainable: true}
+        - class_name: Activation
+          config: {activation: relu, name: activation_2, trainable: true}
         - class_name: Convolution2D
           config:
               W_constraint: null
@@ -36,9 +44,4 @@ method: !BRN
               nb_row: 3
               subsample: !!python/tuple [1, 1]
               trainable: true
-        - class_name: BatchNormalization
-          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
-            mode: 2, momentum: 0.99, name: batchnormalization_2, trainable: true}
-        - class_name: Activation
-          config: {activation: relu, name: activation_2, trainable: true}
 ensemble_size: 10

@@ -1,0 +1,2028 @@
+backend: !!python/unicode 'theano'
+class_name: Sequential
+config:
+- class_name: ZeroPadding2D
+  config:
+    batch_input_shape: !!python/tuple [null, 3, 32, 32]
+    data_format: channels_first
+    dtype: float32
+    name: zero_padding2d_1
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: &id001 !!python/tuple [1, 1]
+    filters: 96
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_1
+    padding: valid
+    strides: &id002 !!python/tuple [1, 1]
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_1, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_1
+    scale: true
+    trainable: true
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_2
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 96
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_2
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_2, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_2
+    scale: true
+    trainable: true
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_3
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 96
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_3
+    padding: valid
+    strides: !!python/tuple [2, 2]
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_3, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_3
+    scale: true
+    trainable: true
+- class_name: Dropout
+  config: {name: dropout_1, rate: 0.5, trainable: true}
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_4
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 192
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_4
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_4, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_4
+    scale: true
+    trainable: true
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_5
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 192
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_5
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_5, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_5
+    scale: true
+    trainable: true
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_6
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 192
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_6
+    padding: valid
+    strides: !!python/tuple [2, 2]
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_6, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_6
+    scale: true
+    trainable: true
+- class_name: Dropout
+  config: {name: dropout_2, rate: 0.5, trainable: true}
+- class_name: ZeroPadding2D
+  config:
+    data_format: channels_first
+    name: zero_padding2d_7
+    padding: !!python/tuple
+    - !!python/tuple [1, 1]
+    - !!python/tuple [1, 1]
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 192
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [3, 3]
+    name: conv2d_7
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_7, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_7
+    scale: true
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 192
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [1, 1]
+    name: conv2d_8
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_0, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_0
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_0
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-0-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-0-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-0-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: &id003 !!python/tuple [1, 1]
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: &id006 !!python/tuple [3, 3]
+        name: BRN-incremental-0-2
+        padding: same
+        strides: &id004 !!python/tuple [1, 1]
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-0-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-0-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-0-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-0-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-0-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: &id007 !!python/tuple [3, 3]
+        name: BRN-incremental-0-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-0-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-0-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_0
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-0-5
+          - 0
+          - 0
+          - &id005
+            mask: [null, null]
+        - - Input_BRN_0
+          - 0
+          - 0
+          - *id005
+      name: merge_BRN_0
+    name: Model_BRN_0
+    output_layers:
+    - [merge_BRN_0, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_1, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_1
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_1
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-1-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-1-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-1-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-1-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-1-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-1-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-1-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-1-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-1-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-1-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-1-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-1-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_1
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-1-5
+          - 0
+          - 0
+          - &id008
+            mask: [null, null]
+        - - Input_BRN_1
+          - 0
+          - 0
+          - *id008
+      name: merge_BRN_1
+    name: Model_BRN_1
+    output_layers:
+    - [merge_BRN_1, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_2, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_2
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-2-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-2-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-2-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-2-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-2-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-2-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-2-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-2-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-2-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-2-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-2-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-2-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_2
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-2-5
+          - 0
+          - 0
+          - &id009
+            mask: [null, null]
+        - - Input_BRN_2
+          - 0
+          - 0
+          - *id009
+      name: merge_BRN_2
+    name: Model_BRN_2
+    output_layers:
+    - [merge_BRN_2, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_3, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_3
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_3
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-3-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-3-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-3-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-3-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-3-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-3-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-3-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-3-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-3-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-3-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-3-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-3-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_3
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-3-5
+          - 0
+          - 0
+          - &id010
+            mask: [null, null]
+        - - Input_BRN_3
+          - 0
+          - 0
+          - *id010
+      name: merge_BRN_3
+    name: Model_BRN_3
+    output_layers:
+    - [merge_BRN_3, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_4, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_4
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_4
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-4-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-4-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-4-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-4-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-4-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-4-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-4-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-4-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-4-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-4-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-4-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-4-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_4
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-4-5
+          - 0
+          - 0
+          - &id011
+            mask: [null, null]
+        - - Input_BRN_4
+          - 0
+          - 0
+          - *id011
+      name: merge_BRN_4
+    name: Model_BRN_4
+    output_layers:
+    - [merge_BRN_4, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_5, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_5
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_5
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-5-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_5
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-5-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-5-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-5-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-5-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-5-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-5-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-5-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-5-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-5-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-5-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-5-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_5
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-5-5
+          - 0
+          - 0
+          - &id012
+            mask: [null, null]
+        - - Input_BRN_5
+          - 0
+          - 0
+          - *id012
+      name: merge_BRN_5
+    name: Model_BRN_5
+    output_layers:
+    - [merge_BRN_5, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_6, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_6
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_6
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-6-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_6
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-6-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-6-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-6-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-6-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-6-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-6-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-6-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-6-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-6-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-6-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-6-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_6
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-6-5
+          - 0
+          - 0
+          - &id013
+            mask: [null, null]
+        - - Input_BRN_6
+          - 0
+          - 0
+          - *id013
+      name: merge_BRN_6
+    name: Model_BRN_6
+    output_layers:
+    - [merge_BRN_6, 0, 0]
+- class_name: Model
+  config:
+    input_layers:
+    - [Input_BRN_7, 0, 0]
+    layers:
+    - class_name: InputLayer
+      config:
+        batch_input_shape: !!python/tuple [null, 192, 8, 8]
+        dtype: float32
+        name: Input_BRN_7
+        sparse: false
+      inbound_nodes: []
+      name: Input_BRN_7
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-7-0
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - Input_BRN_7
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-0
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-7-1, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-7-0
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-1
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id006
+        name: BRN-incremental-7-2
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-7-1
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-2
+    - class_name: BatchNormalization
+      config:
+        axis: 1
+        beta_constraint: null
+        beta_initializer:
+          class_name: Zeros
+          config: {}
+        beta_regularizer: null
+        center: true
+        epsilon: 0.001
+        gamma_constraint: null
+        gamma_initializer:
+          class_name: Ones
+          config: {}
+        gamma_regularizer: null
+        momentum: 0.99
+        moving_mean_initializer:
+          class_name: Zeros
+          config: {}
+        moving_variance_initializer:
+          class_name: Ones
+          config: {}
+        name: BRN-incremental-7-3
+        scale: true
+        trainable: true
+      inbound_nodes:
+      - - - BRN-incremental-7-2
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-3
+    - class_name: Activation
+      config: {activation: relu, name: BRN-incremental-7-4, trainable: true}
+      inbound_nodes:
+      - - - BRN-incremental-7-3
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-4
+    - class_name: Conv2D
+      config:
+        activation: linear
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        bias_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        data_format: channels_first
+        dilation_rate: *id003
+        filters: 192
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+        kernel_regularizer:
+          class_name: L1L2
+          config: {l1: 0.0, l2: 9.999999747378752e-05}
+        kernel_size: *id007
+        name: BRN-incremental-7-5
+        padding: same
+        strides: *id004
+        trainable: true
+        use_bias: true
+      inbound_nodes:
+      - - - BRN-incremental-7-4
+          - 0
+          - 0
+          - {}
+      name: BRN-incremental-7-5
+    - class_name: Merge
+      config:
+        arguments: {}
+        concat_axis: -1
+        dot_axes: -1
+        mode: sum
+        mode_type: raw
+        name: merge_BRN_7
+        output_mask: null
+        output_mask_type: raw
+        output_shape: null
+        output_shape_type: raw
+      inbound_nodes:
+      - - - BRN-incremental-7-5
+          - 0
+          - 0
+          - &id014
+            mask: [null, null]
+        - - Input_BRN_7
+          - 0
+          - 0
+          - *id014
+      name: merge_BRN_7
+    name: Model_BRN_7
+    output_layers:
+    - [merge_BRN_7, 0, 0]
+- class_name: Activation
+  config: {activation: relu, name: activation_8, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_8
+    scale: true
+    trainable: true
+- class_name: Conv2D
+  config:
+    activation: linear
+    activity_regularizer: null
+    bias_constraint: null
+    bias_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    bias_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    data_format: channels_first
+    dilation_rate: *id001
+    filters: 100
+    kernel_constraint: null
+    kernel_initializer:
+      class_name: VarianceScaling
+      config: {distribution: normal, mode: fan_in, scale: 2.0, seed: null}
+    kernel_regularizer:
+      class_name: L1L2
+      config: {l1: 0.0, l2: 9.999999747378752e-05}
+    kernel_size: !!python/tuple [1, 1]
+    name: conv2d_9
+    padding: valid
+    strides: *id002
+    trainable: true
+    use_bias: true
+- class_name: Activation
+  config: {activation: relu, name: activation_9, trainable: true}
+- class_name: BatchNormalization
+  config:
+    axis: 1
+    beta_constraint: null
+    beta_initializer:
+      class_name: Zeros
+      config: {}
+    beta_regularizer: null
+    center: true
+    epsilon: 0.001
+    gamma_constraint: null
+    gamma_initializer:
+      class_name: Ones
+      config: {}
+    gamma_regularizer: null
+    momentum: 0.99
+    moving_mean_initializer:
+      class_name: Zeros
+      config: {}
+    moving_variance_initializer:
+      class_name: Ones
+      config: {}
+    name: batch_normalization_9
+    scale: true
+    trainable: true
+- class_name: AveragePooling2D
+  config:
+    data_format: channels_first
+    name: average_pooling2d_1
+    padding: valid
+    pool_size: &id015 !!python/tuple [8, 8]
+    strides: *id015
+    trainable: true
+- class_name: Flatten
+  config: {name: flatten_1, trainable: true}
+- class_name: Activation
+  config: {activation: softmax, name: activation_10, trainable: true}
+keras_version: 2.0.3

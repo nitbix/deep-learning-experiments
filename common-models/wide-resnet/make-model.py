@@ -5,7 +5,7 @@ from keras.engine import merge, Input, Model
 from keras.utils import np_utils
 import keras.backend as K
 
-nb_classes = 10
+nb_classes = 100
 
 img_rows, img_cols = 32, 32
 img_channels = 3

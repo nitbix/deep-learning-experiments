@@ -1,0 +1,26 @@
+---
+## MLP Parameters ##
+dataset: /local/cifar100_whitened_torch/
+model_file: all-cnn.model
+optimizer:
+  class_name: WAME
+  config:
+    lr:
+      0:  0.001
+      40: 0.0001
+    decay: 1e-5
+n_epochs: 100
+batch_size: 128
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+join_train_and_valid: false
+one_hot: true
+
+## Ensemble Parameters ##
+resample_size: 50000
+method: !DIB
+    n_epochs_after_first: 10
+    freeze_old_layers: false
+    incremental_index: 31
+    incremental_layers: !include incremental_layers.yaml
+ensemble_size: 10

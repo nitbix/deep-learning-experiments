@@ -3,6 +3,7 @@ import numpy as np
 from keras.layers import Dense, Activation, Flatten, Lambda, Convolution2D, AveragePooling2D, BatchNormalization, Dropout
 from keras.engine import merge, Input, Model
 from keras.utils import np_utils
+from keras.regularizers import l2
 import keras.backend as K
 
 nb_classes = 10
@@ -12,6 +13,7 @@ img_channels = 3
 
 blocks_per_group = 4
 widening_factor = 10
+weight_decay = 0.0005
 
 def residual_block(x, nb_filters=16, subsample_factor=1):
     #make input
@@ -29,12 +31,14 @@ def residual_block(x, nb_filters=16, subsample_factor=1):
     y = BatchNormalization(axis=1)(x)
     y = Activation('relu')(y)
     y = Convolution2D(nb_filters, 3, 3, subsample=subsample,
-                      init='he_normal', border_mode='same', dim_ordering='th')(y)
+                      init='he_normal', border_mode='same', dim_ordering='th',
+                      W_regularizer = l2(weight_decay))(y)
     y = BatchNormalization(axis=1)(y)
     y = Activation('relu')(y)
     y = Dropout(0.5)(y)
     y = Convolution2D(nb_filters, 3, 3, subsample=(1, 1),
-                      init='he_normal', border_mode='same', dim_ordering='th')(y)
+                      init='he_normal', border_mode='same', dim_ordering='th',
+                      W_regularizer = l2(weight_decay))(y)
 
     # 1 X 1 conv if shape is different. Else identity.
     if (nb_filters > prev_nb_channels):
@@ -42,7 +46,8 @@ def residual_block(x, nb_filters=16, subsample_factor=1):
                                  subsample=(1,1),
                                  init="he_normal",
                                  border_mode="same",
-                                 dim_ordering='th'
+                                 dim_ordering='th',
+                                 W_regularizer = l2(weight_decay)
                                  )(shortcut)
 
     #make merge
@@ -51,7 +56,8 @@ def residual_block(x, nb_filters=16, subsample_factor=1):
 inputs = Input(shape=(img_channels, img_rows, img_cols))
 
 x = Convolution2D(16, 3, 3, 
-                  init='he_normal', border_mode='same', dim_ordering='th')(inputs)
+                  init='he_normal', border_mode='same', dim_ordering='th',
+                  W_regularizer = l2(weight_decay))(inputs)
 
 for i in range(0, blocks_per_group):
     nb_filters = 16 * widening_factor

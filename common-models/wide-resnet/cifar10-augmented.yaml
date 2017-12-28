@@ -19,8 +19,8 @@ cost_function: categorical_crossentropy
 shuffle_dataset: true
 join_train_and_valid: true
 online_transform:
-    #    pad: [40, 40]
-#    crop: [32, 32]   
+    pad: [40, 40]
+    crop: [32, 32]   
     horizontal_flip: true
 #    featurewise_center: true
 #    featurewise_std_normalization: true
@@ -29,7 +29,7 @@ online_transform:
 #    height_shift_range: 0.1
 #    width_shift_range: 0.1
 #    after_epoch: 30
-#    rotation_range: 10
+    rotation_range: 10
 #    zoom_range: 0.2
     height_shift_range: 0.125
     width_shift_range: 0.125

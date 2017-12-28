@@ -4,10 +4,12 @@ first_file=$1
 second_file=$2
 out_file=$3
 error_name=$4
-title=$5
+x_label=$5
 first_label=$6
 second_label=$7
 epochs=$8
+first_arg=2
+second_arg=3
 
 dumped_dir=/var/www/html/dumped/graphs
 
@@ -21,14 +23,14 @@ set border 3 back ls 11
 set tics nomirror
 set style line 12 lc rgb '#808080' lt 0 lw 1
 set grid back ls 12
-set title \"$title\"
+set title \"\"
 set terminal postscript eps enhanced color size 4,2.5
-set xlabel \"Boosting round\"
+set xlabel \"${x_label}\"
 set ylabel \"${error_name} (%)\"
 set terminal postscript eps enhanced color size 4,2.5
 set out \"${out_file}.eps\"
-plot \"${first_file}\"  every ::0::${epochs} using 1:2 linestyle 1 title \"${first_label}\" with lines,\
-     \"${second_file}\" every ::0::${epochs} using 1:2 linestyle 2 title \"${second_label}\" with lines
+plot \"${first_file}\"  every ::0::${epochs} using 1:$first_arg linestyle 1 title \"${first_label}\" with lines,\
+     \"${second_file}\" every ::0::${epochs} using 1:$second_arg linestyle 2 title \"${second_label}\" with lines
 
 set terminal png
 set out \"${out_file}.png\"

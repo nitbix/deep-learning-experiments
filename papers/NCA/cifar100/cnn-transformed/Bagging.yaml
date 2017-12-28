@@ -1,0 +1,28 @@
+---
+## MLP Parameters ##
+dataset: /local/cifar100_whitened_torch/
+model_file: full-resnet.model
+optimizer:
+  class_name: WAME
+  config:
+    lr:
+      0:  0.001
+      40: 0.0001
+    decay: 1e-5
+n_epochs: 50 #max number of training epochs
+batch_size: 256
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+join_train_and_valid: false
+one_hot: true
+online_transform:
+    horizontal_flip: true
+    vertical_flip: false
+    rotation_range: 10
+    height_shift_range: 0.1
+    width_shift_range: 0.1
+
+## Ensemble Parameters ##
+resample_size: 50000
+method: !Bagging { }
+ensemble_size: 10

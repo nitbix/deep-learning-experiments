@@ -1,9 +1,9 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar100_th/
+dataset: /local/cifar100-th/
 model_file: all-cnn.model
 optimizer:
-  class_name: ARMSProp
+  class_name: WAME
   config:
     lr: 0.001
     decay: 1e-5
@@ -21,11 +21,17 @@ online_transform:
 
 ## Ensemble Parameters ##
 resample_size: 50000
+use_sample_weights: true
 method: !BRN
-    n_epochs_after_first: 10
+    n_epochs_after_first: 1
     freeze_old_layers: false
     incremental_index: 26
     incremental_layers:
+        - class_name: Activation
+          config: {activation: relu, name: activation_5, trainable: true}
+        - class_name: BatchNormalization
+          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+            mode: 2, momentum: 0.99, name: batchnormalization_5, trainable: true}
         - class_name: Convolution2D
           config:
             W_constraint: null
@@ -45,10 +51,10 @@ method: !BRN
             subsample: !!python/tuple [1, 1]
             trainable: true
         - class_name: Activation
-          config: {activation: relu, name: activation_5, trainable: true}
+          config: {activation: relu, name: activation_6, trainable: true}
         - class_name: BatchNormalization
           config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
-            mode: 2, momentum: 0.99, name: batchnormalization_5, trainable: true}
+            mode: 2, momentum: 0.99, name: batchnormalization_6, trainable: true}
         - class_name: Convolution2D
           config:
             W_constraint: null
@@ -67,11 +73,6 @@ method: !BRN
             nb_row: 3
             subsample: !!python/tuple [1, 1]
             trainable: true
-        - class_name: Activation
-          config: {activation: relu, name: activation_6, trainable: true}
-        - class_name: BatchNormalization
-          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
-            mode: 2, momentum: 0.99, name: batchnormalization_6, trainable: true}
         - class_name: Dropout
-          config: {name: dropout_2, p: 0.5, trainable: true}
+          config: {name: dropout_2, p: 0.2, trainable: true}
 ensemble_size: 10

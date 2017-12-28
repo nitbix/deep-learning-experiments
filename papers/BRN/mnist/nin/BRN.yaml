@@ -3,7 +3,7 @@
 dataset: /local/mnist_th/
 model_file: nin.model
 optimizer:
-  class_name: Aprop
+  class_name: WAME
   config:
     lr:
       0:  0.001
@@ -20,8 +20,15 @@ resample_size: 60000
 method: !BRN
     n_epochs_after_first: 10
     freeze_old_layers: false
+    resample: false
+    use_sample_weights: true
     incremental_index: 9
     incremental_layers:
+        - class_name: BatchNormalization
+          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
+            mode: 2, momentum: 0.99, name: batchnormalization_2, trainable: true}
+        - class_name: Activation
+          config: {activation: relu, name: activation_2, trainable: true}
         - class_name: Convolution2D
           config:
               W_constraint: null
@@ -39,9 +46,4 @@ method: !BRN
               nb_row: 3
               subsample: !!python/tuple [1, 1]
               trainable: true
-        - class_name: BatchNormalization
-          config: {axis: 1, beta_regularizer: null, epsilon: 1.0e-05, gamma_regularizer: null,
-            mode: 2, momentum: 0.99, name: batchnormalization_2, trainable: true}
-        - class_name: Activation
-          config: {activation: relu, name: activation_2, trainable: true}
 ensemble_size: 10

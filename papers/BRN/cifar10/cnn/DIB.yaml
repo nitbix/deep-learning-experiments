@@ -1,19 +1,22 @@
 ---
 ## MLP Parameters ##
-dataset: /local/cifar10-th/
+dataset: /local/cifar10_whitened_torch/
 model_file: all-cnn.model
 optimizer:
   class_name: WAME
   config:
     lr:
       0:  0.001
-      40: 0.0001
+      20: 0.0005
+      60: 0.0001
     decay: 1e-5
 n_epochs: 100
 batch_size: 128
 cost_function: categorical_crossentropy
 shuffle_dataset: true
-join_train_and_valid: true
+join_train_and_valid: false
+one_hot: true
+test_at_each_epoch: false
 #online_transform:
 #    horizontal_flip: true
 #    vertical_flip: false

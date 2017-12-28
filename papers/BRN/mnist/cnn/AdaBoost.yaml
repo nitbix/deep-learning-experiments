@@ -3,7 +3,7 @@
 dataset: /local/mnist_th/
 model_file: mnist.model
 optimizer:
-  class_name: Adam
+  class_name: WAME
   config:
     lr: 0.001
     decay: 1e-4

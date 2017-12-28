@@ -23,6 +23,7 @@ join_train_and_valid: true
 
 ## Ensemble Parameters ##
 resample_size: 50000
+use_sample_weights: true
 method: !BRN
     n_epochs_after_first: 10
     lr_after_first: 0.0001

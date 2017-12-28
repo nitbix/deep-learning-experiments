@@ -19,17 +19,19 @@ online_transform:
     horizontal_flip: true
     vertical_flip: false
     rotation_range: 10
-    height_shift_range: 0.125
-    width_shift_range: 0.125
+    height_shift_range: 0.1
+    width_shift_range: 0.1
 
 ## Ensemble Parameters ##
 resample_size: 50000
 use_sample_weights: true
 method: !BRN
-    n_epochs_after_first: 10
-    lr_after_first: 0.0001
+    n_epochs_after_first: 15
+    lr_after_first:
+        0: 0.001
+        5: 0.0001
     freeze_old_layers: false
-    incremental_index: 36
+    incremental_index: 31
     incremental_layers:
         - class_name: BatchNormalization
           config:
@@ -81,7 +83,7 @@ method: !BRN
               config: {l1: 0.0, l2: 9.999999747378752e-05}
             kernel_size: !!python/tuple [3, 3]
             name: conv2d_1
-            padding: valid
+            padding: same
             strides: &id002 !!python/tuple [1, 1]
             trainable: true
             use_bias: true
@@ -135,7 +137,7 @@ method: !BRN
               config: {l1: 0.0, l2: 9.999999747378752e-05}
             kernel_size: !!python/tuple [3, 3]
             name: conv2d_1
-            padding: valid
+            padding: same
             strides: *id002
             trainable: true
             use_bias: true

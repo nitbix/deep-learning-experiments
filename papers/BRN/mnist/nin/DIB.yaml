@@ -3,7 +3,7 @@
 dataset: /local/mnist_th/
 model_file: nin.model
 optimizer:
-  class_name: Aprop
+  class_name: WAME
   config:
     lr:
       0:  0.001
@@ -21,6 +21,7 @@ method: !DIB
     n_epochs_after_first: 10
     freeze_old_layers: false
     incremental_index: 9
+    use_sample_weights: true
     incremental_layers:
         - class_name: Convolution2D
           config:
