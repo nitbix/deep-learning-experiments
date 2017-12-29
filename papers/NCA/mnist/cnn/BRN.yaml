@@ -19,6 +19,7 @@ method: !BRN
     n_epochs_after_first: 20
     freeze_old_layers: false
     use_sample_weights: true
+    resample: false
     incremental_index: 6
     incremental_layers: !include incremental_layers.yaml
 ensemble_size: 10
