@@ -1,0 +1,17 @@
+---
+## MLP Parameters ##
+dataset: /local/mnist_th/
+model_file: mnist.model
+optimizer:
+  class_name: DRPROP
+  config:
+    lr: 
+      0: 0.1
+      1: 0.01
+      35: 0.001
+      60: 0.0001
+    decay: 1e-4
+n_epochs: 100 #max number of training epochs
+batch_size: 5000 
+cost_function: categorical_crossentropy
+shuffle_dataset: true
