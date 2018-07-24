@@ -28,6 +28,6 @@ method: !BRN
     n_epochs_after_first: 10
     lr_after_first: 0.0001
     freeze_old_layers: false
-    incremental_index: 36
+    incremental_index: 31
     incremental_layers: !include incremental_layers.yaml
 ensemble_size: 10
