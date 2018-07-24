@@ -1,0 +1,23 @@
+---
+## MLP Parameters ##
+dataset: /local/tiny-imagenet-200/
+model_file: full-resnet.model
+optimizer:
+  class_name: WAME
+  config:
+    lr:
+      0:  0.001
+      30: 0.0005
+      60: 0.0001
+    decay: 1e-5
+n_epochs: 100
+batch_size: 128
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+join_train_and_valid: false
+one_hot: true
+
+## Ensemble Parameters ##
+resample_size: 50000
+method: !AdaBoostM1 { }
+ensemble_size: 10

@@ -1,0 +1,23 @@
+---
+## MLP Parameters ##
+dataset: /local/tiny-imagenet-200/
+model_file: all-cnn.model
+optimizer:
+  class_name: RMSProp
+  config:
+    lr:
+      0:  0.001
+      30: 0.0005
+      60: 0.0001
+    decay: 1e-5
+n_epochs: 100
+batch_size: 256
+cost_function: categorical_crossentropy
+shuffle_dataset: true
+join_train_and_valid: false
+one_hot: true
+
+## Ensemble Parameters ##
+resample_size: 100000
+method: !AdaBoostM1 { }
+ensemble_size: 10
