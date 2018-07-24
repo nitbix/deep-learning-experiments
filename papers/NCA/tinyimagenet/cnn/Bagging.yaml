@@ -1,6 +1,6 @@
 ---
 ## MLP Parameters ##
-dataset: /local/tiny-imagenet-200/
+dataset: /datasets/tinyimagenet/
 model_file: all-cnn.model
 optimizer:
   class_name: RMSProp
