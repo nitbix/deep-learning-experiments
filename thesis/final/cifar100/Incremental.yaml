@@ -1,0 +1,27 @@
+---
+## Network Parameters ##
+dataset: ~/cifar-100-new-loaded/
+model_file: densenet121small.model
+optimizer: !include optimizer.yaml
+reduce_lr_on_plateau:
+  factor: 0.1
+  patience: 5
+  cooldown: 0
+  min_lr: 0.0000001
+data_format: npz
+convert_labels_to_one_hot: true
+epochs: 100
+batch_size: 128
+loss: categorical_crossentropy
+shuffle: true
+img_gen_params: !include img_gen.yaml
+
+## Ensemble Parameters ##
+ensemble_method:
+  class_name: Incremental
+  params:
+    subsequent_epochs: 30
+    subsequent_optimizer: !include subsequent_optimizer.yaml
+    insert_after: concatenate_34
+    new_layers: !include new_layers.yaml
+    size: 30

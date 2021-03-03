@@ -1,0 +1,6 @@
+width_shift_range: 0.125
+height_shift_range: 0.125
+horizontal_flip: true
+rotation_range: 15
+featurewise_std_normalization: true
+featurewise_center: true
